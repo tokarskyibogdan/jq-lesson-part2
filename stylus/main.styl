@@ -1,0 +1,143 @@
+@import "nib"
+@import "_buttons.styl"
+@import "_keyframes.styl"
+
+
+body
+  font-family 'Montserrat'
+
+a
+  color #000000
+  &:hover,
+  &:active,
+  &:focus
+    text-decoration none
+    color #000000
+
+
+
+.background-red
+  background-color #ff343d
+
+.background-gray
+  background-color #eff2f6
+
+.background-dark-gray
+  background-color #232323
+
+.background-light-gray
+  background-color #f8f9fb
+
+
+.welcome-section
+  position relative
+  margin 0
+  height 100vh
+
+.full-height
+  height 50%
+  @media (min-width: 768px)
+    height 100%
+
+
+
+.padding-left-right-none
+  padding-left 0
+  padding-right 0
+
+.header
+  width 100%
+  position absolute
+  margin-top 22px
+  z-index 1
+  @media (min-width: 576px)
+    margin-top 32px
+  @media (min-width: 768px)
+    margin-top 42px
+  @media (min-width: 992px)
+    margin-top 52px
+  @media (min-width: 1200px)
+    margin-top 62px
+
+.gray-text
+  font 400 14px 'Montserrat'
+  color #92a1a5
+
+.logo
+  span
+    font 700 24px 'Montserrat'
+
+.flex
+  display flex
+
+.phone
+  margin-left 75px
+  &:hover
+    color #ff343d
+  @media (max-width: 768px)
+    font-size 20px
+    margin 3px 0 0 10px
+  span
+    @media (max-width: 768px)
+      display none
+
+.logo-phone
+  margin-left 10%
+
+.buy-menu
+  margin-right 10%
+
+.half-drone
+  width 88%
+
+.road
+  width 100%
+
+.tap-to-fly-section
+  background #f8f9fb url("../img/half-drone.png") no-repeat
+  background-size 90%
+  height 100%
+  @media (max-width: 768px)
+    padding 30% 0 30%
+    background-position center
+    background-position-x -4%
+  div
+    span
+      margin-left 2%
+      font-size 0.9vw
+      @media (max-width: 768px)
+        font-size 1.8vw
+        margin 0 auto
+    h2
+      font-size 3.5vw
+      font-weight 700
+      @media (max-width: 768px)
+        font-size 7vw
+    margin auto 0
+    margin-left 27%
+    @media (max-width: 768px)
+      margin auto auto
+
+.drone
+  position absolute
+  height 600px
+  width 600px
+  top 7vh
+  &::before
+    content ''
+    position absolute
+    height 600px
+    width 600px
+    background url("../img/drone.png") no-repeat center
+    display none
+    @media (min-width: 768px)
+      display block
+      background-size 70%
+    @media (min-width: 992px)
+      background-size 80%
+    @media (min-width: 1200px)
+      background-size 100%
+
+
+.red-section
+  background-color #ff343d
