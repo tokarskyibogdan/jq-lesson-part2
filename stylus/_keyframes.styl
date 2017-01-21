@@ -1,24 +1,7 @@
 /* Pulse */
-@-webkit-keyframes hvr-pulse {
-  25% {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.3);
-  }
-  75% {
-    -webkit-transform: scale(0.9);
-    transform: scale(0.9);
-  }
-}
-@keyframes hvr-pulse {
-  25% {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.3);
-  }
-  75% {
-    -webkit-transform: scale(0.9);
-    transform: scale(0.9);
-  }
-}
+
+
+
 .hvr-pulse
   div
     display: inline-block;
@@ -72,3 +55,84 @@
 .hvr-underline-from-left:focus:before,
 .hvr-underline-from-left:active:before
   right 0
+
+
+.rotate
+  &:hover
+    img
+      transform rotate(360deg)
+      transition 1s
+
+.pulse
+  &:hover
+    img
+      border-top 0 solid red
+      border-top-left-radius 30px
+      border-top-right-radius 30px
+      box-shadow 0px -15px 0px 0px rgba(230,21,21,0.3);
+      position relative
+      transition 1s
+
+
+@-webkit-keyframes hvr-ripple-out {
+  100% {
+    top: -12px;
+    right: -12px;
+    bottom: -12px;
+    left: -12px;
+    opacity: 0;
+  }
+}
+@keyframes hvr-ripple-out {
+  100% {
+    top: -12px;
+    right: -12px;
+    bottom: -12px;
+    left: -12px;
+    opacity: 0;
+  }
+}
+
+.hvr-ripple-out
+  div
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    position: relative;
+    top -8px
+    width 12px
+    height 12px
+    background-color #ffffff
+    border-radius 50%
+    p
+      height 100%
+      width 100%
+      border: solid red 3px;
+      border-radius 50%
+
+
+.hvr-ripple-out
+  div:before
+    content: '';
+    position: absolute;
+    border: solid red 3px;
+    border-radius 50%
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+
+
+.hvr-ripple-out:hover,
+.hvr-ripple-out:focus,
+.hvr-ripple-out:active
+  div:before
+    -webkit-animation-name: hvr-ripple-out;
+    animation-name: hvr-ripple-out;
+    animation-iteration-count: infinite;
+
+
+

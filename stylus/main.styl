@@ -6,6 +6,25 @@
 body
   font-family 'Montserrat'
 
+h1
+  font-size 4.5vw
+  font-weight 400
+  @media (max-width: 768px)
+    font-size 8vw
+
+h2,
+.h2
+  font-size 3vw
+  font-weight 700
+  @media (max-width: 768px)
+    font-size 5vw
+h3
+  font-size 2.5vw
+  font-weight 700
+  @media (max-width: 768px)
+    font-size 4vw
+  @media (max-width: 568px)
+    font-size 6vw
 a
   color #000000
   &:hover,
@@ -14,12 +33,19 @@ a
     text-decoration none
     color #000000
 
+.text-black
+  color #000000
 
+.text-ocean
+  color #318f76
 
-.background-red
+.bg-dark
+  background-color #232323
+
+.red-section
   background-color #ff343d
 
-.background-gray
+.background-switch
   background-color #eff2f6
 
 .background-dark-gray
@@ -38,7 +64,6 @@ a
   height 50%
   @media (min-width: 768px)
     height 100%
-
 
 
 .padding-left-right-none
@@ -60,12 +85,12 @@ a
     margin-top 62px
 
 .gray-text
-  font 400 14px 'Montserrat'
+  font 400 2vh 'Montserrat'
   color #92a1a5
 
 .logo
   span
-    font 700 24px 'Montserrat'
+    font 700 140% 'Montserrat'
 
 .flex
   display flex
@@ -78,6 +103,7 @@ a
     font-size 20px
     margin 3px 0 0 10px
   span
+    margin-top -10px
     @media (max-width: 768px)
       display none
 
@@ -95,35 +121,63 @@ a
 
 .tap-to-fly-section
   background #f8f9fb url("../img/half-drone.png") no-repeat
-  background-size 90%
+  background-size cover
   height 100%
+  transition 2s
   @media (max-width: 768px)
     padding 30% 0 30%
     background-position center
     background-position-x -4%
   div
+    z-index 2
     span
       margin-left 2%
       font-size 0.9vw
       @media (max-width: 768px)
         font-size 1.8vw
         margin 0 auto
-    h2
-      font-size 3.5vw
-      font-weight 700
-      @media (max-width: 768px)
-        font-size 7vw
     margin auto 0
     margin-left 27%
     @media (max-width: 768px)
       margin auto auto
 
+  &::after
+    transition 2s
+    content ""
+    position absolute
+    top 50%
+    transform translate(0, -50%) scale(0.7)
+    right -10px
+    height 150px
+    width 75px
+    border-radius 150px 0 0 150px
+    background-color #e8ecf1
+    box-shadow 0 0 0 40px #eef1f5, 0 0 0 75px #f4f6f9
+    @media (min-width: 576px)
+      transform translate(0, -50%) scale(1)
+      right 0
+    @media (min-width: 768px)
+      transform translate(0, -50%) scale(.7)
+      right -10px
+    @media (min-width: 1200px)
+      transform translate(0, -50%) scale(1)
+
+  &:hover:after
+    -webkit-animation-name: hvr-pulse;
+    animation-name: hvr-pulse;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+
+
 .drone
   position absolute
   height 600px
   width 600px
-  top 7vh
-  &::before
+  &:before
     content ''
     position absolute
     height 600px
@@ -138,6 +192,172 @@ a
     @media (min-width: 1200px)
       background-size 100%
 
+.fly-higher-section
+  background url("../img/road.png") no-repeat
+  background-size cover
+  position relative
+  button
+    transition 2s
+    transform rotate(-90deg)
+    margin 0 0 9% 35%
+    &:after
+      content: ''
+      background-color #ffffff
+      width 100%
+      height 1px
+      position absolute
+      bottom 0
+      left -150px
 
-.red-section
-  background-color #ff343d
+
+  .dark-section
+    transition 2s
+    background-color rgba(0, 0, 0, 0.65)
+    width 44%
+    height 100%
+    padding 18% 5%
+
+  &:hover
+    .dark-section
+      transition 2s
+      width 60%
+    button
+      transform rotate(360deg)
+      transition 2s
+      margin-top 5%
+      margin-left 11%
+
+.features-section
+  padding 5% 0
+  h3
+    margin-bottom 5%
+  div
+    img
+      margin-bottom  25px
+      transition 2s
+
+
+
+
+.controller
+  img
+    width 100%
+
+.new
+  &-gen
+    padding 5% 5%
+    button
+      margin-top 4%
+  &-f
+    padding 12% 0 12% 10%
+    button
+      margin-top 4%
+    @media (max-width: 768px)
+      padding 5% 5%
+
+
+
+
+
+.nf-toggle-text,
+.ng-toggle-text,
+.j-toggle-text
+  display none
+  font-size 1.2vw
+  @media (max-width: 768px)
+    font-size 2.4vw
+
+.new-f-img
+  max-height 700px
+  padding  5% 0 5% 0
+  overflow hidden
+  img
+    height 70vh
+
+.margin-none
+  margin 0
+
+
+.journey-section
+  height 50vh
+  padding 40% 0 20%
+  background url("../img/boats.png") no-repeat
+  overflow hidden
+  background-size cover
+  button
+    margin 4% 0
+  p
+    width 30%
+
+.padding-top
+  padding-top 30%
+
+footer
+  margin 4% 0
+  position relative
+
+.phantom-text
+  text-shadow: 1px 1px 70px rgba(0, 0, 0, 0.1);
+  color: #fff
+  opacity 0.3
+  font-size 10vw
+  font-weight 700
+
+.logo-rights
+  p
+    margin-top 1%
+  position relative
+  top 21vh
+  z-index 2
+
+
+.menu{
+  z-index:10;
+  font-weight:bold;
+  ont-size:0.8em;
+  width:100%;
+  background: #ff6470 ;
+  position:absolute;
+  text-align:center;
+}
+
+.menu ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  list-style-image: none;
+}
+
+.menu li {
+  display: block;
+  padding:15px 0 15px 0;
+  border-bottom: #a5001b 1px solid;
+}
+
+.menu li:hover{
+  display: block;
+  background: #8e0c13;
+  padding:15px 0 15px 0;
+  border-bottom: #a07023 1px solid;
+}
+
+.menu ul li a {
+  text-decoration:none;
+  margin: 0px;
+  color:#fff;
+}
+
+.menu ul li a:hover {
+  color: #fff;
+  text-decoration:none;
+}
+
+.menu a{
+  text-decoration:none;
+  color:white;
+}
+
+.menu a:hover{
+  text-decoration:none;
+  color:white;
+}
