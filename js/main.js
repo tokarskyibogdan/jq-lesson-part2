@@ -46,4 +46,26 @@ jQuery(function ($) {
         });
     });
 
+    $('.slider-dots li').on('click', function () {
+        $('.slider-content li').css('display', 'none');
+        $('.slider-dots li').css('color', '#e1e1e1');
+        $(this).css('color', 'red');
+    });
+
+    $('.slider-dots li:first-child').on('click', function () {
+        $('.slider-content li:first-child').slideDown(500);
+    });
+
+    $('.slider-dots li:nth-child(2)').on('click', function () {
+        $('.slider-content li:nth-child(2)').slideDown(500);
+    });
+
+    $('.slider-dots li:nth-child(3)').on('click', function () {
+        $('.slider-content li:nth-child(3)').slideDown(500);
+    });
+
+    $('.slider-dots li:last-child').on('click', function () {
+        $('.slider-content li:last-child').slideDown(500);
+    });
 });
+

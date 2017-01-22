@@ -1,6 +1,7 @@
 @import "nib"
 @import "_buttons.styl"
 @import "_keyframes.styl"
+@import "_menu.styl"
 
 
 body
@@ -33,6 +34,19 @@ a
     text-decoration none
     color #000000
 
+.display-none
+  display none
+
+.margin-none
+  margin 0
+
+.flex
+  display flex
+
+.gray-text
+  font 400 2vh 'Montserrat'
+  color #92a1a5
+
 .text-black
   color #000000
 
@@ -45,8 +59,9 @@ a
 .red-section
   background-color #ff343d
 
-.background-switch
+.background-gray
   background-color #eff2f6
+  position relative
 
 .background-dark-gray
   background-color #232323
@@ -54,17 +69,13 @@ a
 .background-light-gray
   background-color #f8f9fb
 
-
 .welcome-section
   position relative
   margin 0
   height 100vh
 
 .full-height
-  height 50%
-  @media (min-width: 768px)
-    height 100%
-
+  height 100%
 
 .padding-left-right-none
   padding-left 0
@@ -84,16 +95,9 @@ a
   @media (min-width: 1200px)
     margin-top 62px
 
-.gray-text
-  font 400 2vh 'Montserrat'
-  color #92a1a5
-
 .logo
   span
     font 700 140% 'Montserrat'
-
-.flex
-  display flex
 
 .phone
   margin-left 75px
@@ -112,6 +116,74 @@ a
 
 .buy-menu
   margin-right 10%
+
+.slider
+  position relative
+  width 100%
+  margin auto 0
+  margin-left 18%
+  @media (max-width: 768px)
+    margin 19% 0 0 25%
+
+ul
+  list-style none
+  padding 0
+
+.slider-content
+  width 70%
+  list-style none
+  padding 0
+  h2
+    margin-bottom 9%
+  @media (max-width: 768px)
+    h2
+      margin-bottom 10px
+  @media (max-width: 400px)
+    margin-left 8%
+    margin-top 15%
+
+.slider-dots
+  z-index 1
+  position absolute
+  top 40%
+  left 15%
+  margin-right 3%
+  li
+    color #e1e1e1
+    font-size .8vw
+    &:hover
+      color #ff343d
+      cursor pointer
+  @media (max-width: 768px)
+    left 20%
+    top 30vmin
+    li
+      font-size 1.5vw
+  @media (max-width: 400px)
+    li
+      font-size 2vw
+
+.scroll-down:after
+  content "Scroll down"
+  position absolute
+  font-weight 700
+  top 85%
+  left 15%
+  transform rotate(-90deg)
+  -webkit-animation: jump 1.5s ease 0s infinite normal ;
+  animation: jump 1.5s ease 0s infinite normal ;
+
+.mars-text:after
+  content "MARS"
+  color #ff343d
+  opacity 0.3
+  text-shadow 0 2px 30px rgba(0, 1, 1, 0.15)
+  font-size 15vw
+  font-weight 700
+  transform rotate(90deg)
+  position absolute
+  right -27%
+  top 30%
 
 .half-drone
   width 88%
@@ -141,7 +213,7 @@ a
     @media (max-width: 768px)
       margin auto auto
 
-  &::after
+  &:after
     transition 2s
     content ""
     position absolute
@@ -172,7 +244,6 @@ a
     -webkit-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
 
-
 .drone
   position absolute
   height 600px
@@ -196,19 +267,11 @@ a
   background url("../img/road.png") no-repeat
   background-size cover
   position relative
+  transition 2s
   button
     transition 2s
     transform rotate(-90deg)
     margin 0 0 9% 35%
-    &:after
-      content: ''
-      background-color #ffffff
-      width 100%
-      height 1px
-      position absolute
-      bottom 0
-      left -150px
-
 
   .dark-section
     transition 2s
@@ -216,11 +279,33 @@ a
     width 44%
     height 100%
     padding 18% 5%
+    &:after
+      content ""
+      height 1px
+      width 23%
+      background-color #ffffff
+      position absolute
+      top 90%
+      left 73.5%
+      transition 2s
+      transform rotate(90deg)
+      opacity 0.6
 
   &:hover
     .dark-section
       transition 2s
       width 60%
+      &:after
+        content ""
+        height 1px
+        width 10%
+        background-color #ffffff
+        position absolute
+        top 53%
+        left 60%
+        transition 2s
+        opacity 0.6
+        transform rotate(360deg)
     button
       transform rotate(360deg)
       transition 2s
@@ -236,28 +321,26 @@ a
       margin-bottom  25px
       transition 2s
 
-
-
-
 .controller
   img
     width 100%
 
 .new
   &-gen
+    position relative
     padding 5% 5%
+    background url('../img/liner-copter.png') #232323 no-repeat
+    background-size 30%
+    background-position right center
     button
       margin-top 4%
+
   &-f
     padding 12% 0 12% 10%
     button
       margin-top 4%
     @media (max-width: 768px)
       padding 5% 5%
-
-
-
-
 
 .nf-toggle-text,
 .ng-toggle-text,
@@ -274,90 +357,35 @@ a
   img
     height 70vh
 
-.margin-none
-  margin 0
-
-
 .journey-section
-  height 50vh
-  padding 40% 0 20%
+  height 100vh
+  padding 40% 10% 20%
   background url("../img/boats.png") no-repeat
   overflow hidden
   background-size cover
+  transition 2s
   button
     margin 4% 0
-  p
-    width 30%
-
-.padding-top
-  padding-top 30%
 
 footer
   margin 4% 0
   position relative
-
-.phantom-text
-  text-shadow: 1px 1px 70px rgba(0, 0, 0, 0.1);
-  color: #fff
-  opacity 0.3
-  font-size 10vw
-  font-weight 700
+  size 100%
+  &:after
+    content "PHANTOM"
+    text-shadow: 1px 1px 70px rgba(0, 0, 0, 0.1);
+    color: #fff
+    opacity 0.3
+    font-size 10vw
+    font-weight 700
+    position absolute
+    left 23%
+    z-index -1
+    @media (max-width: 768px)
+      top 10%
 
 .logo-rights
+  margin 5% 0
+  z-index 2
   p
     margin-top 1%
-  position relative
-  top 21vh
-  z-index 2
-
-
-.menu{
-  z-index:10;
-  font-weight:bold;
-  ont-size:0.8em;
-  width:100%;
-  background: #ff6470 ;
-  position:absolute;
-  text-align:center;
-}
-
-.menu ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  list-style-image: none;
-}
-
-.menu li {
-  display: block;
-  padding:15px 0 15px 0;
-  border-bottom: #a5001b 1px solid;
-}
-
-.menu li:hover{
-  display: block;
-  background: #8e0c13;
-  padding:15px 0 15px 0;
-  border-bottom: #a07023 1px solid;
-}
-
-.menu ul li a {
-  text-decoration:none;
-  margin: 0px;
-  color:#fff;
-}
-
-.menu ul li a:hover {
-  color: #fff;
-  text-decoration:none;
-}
-
-.menu a{
-  text-decoration:none;
-  color:white;
-}
-
-.menu a:hover{
-  text-decoration:none;
-  color:white;
-}
